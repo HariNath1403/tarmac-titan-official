@@ -1,0 +1,983 @@
+// 1. Homepage
+.homepage {
+  position: relative;
+  height: 100vh;
+  overflow-y: hidden;
+
+  @include respond(tab-port) {
+    height: auto;
+  }
+
+  &__nav {
+    background-color: $color-main;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-small $space-margin;
+
+    @include respond(tab-land) {
+      padding: $space-small;
+    }
+
+    @include respond(tab-port) {
+      padding: $space-small $space-gap;
+    }
+
+    &--company {
+      display: flex;
+      align-items: center;
+      gap: $space-small;
+    }
+
+    &--header {
+      color: $color-accent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--main {
+        text-transform: uppercase;
+        font-size: calc(#{$text-emphasize + $text-standard}/ 2);
+        letter-spacing: 1.8px;
+
+        @include respond(tab-land) {
+          font-size: $text-small;
+        }
+
+        @include respond(tab-port) {
+          font-size: $text-standard;
+          letter-spacing: 2.4px;
+        }
+      }
+
+      &--sub {
+        margin-top: $space-supersmall;
+        text-transform: uppercase;
+        font-size: $text-mini;
+        font-weight: 400;
+        letter-spacing: 1.6px;
+
+        @include respond(tab-land) {
+          font-size: $text-supersmall;
+        }
+        @include respond(tab-port) {
+          font-size: $text-mini;
+        }
+      }
+    }
+
+    &--icon {
+      width: $icon-medium;
+      height: auto;
+      transform: scale(1);
+      transition: all 0.75s;
+
+      &:hover {
+        transform: scale(1.25);
+      }
+    }
+
+    &--list {
+      display: flex;
+      gap: $space-small;
+      gap: $space-gap;
+
+      @include respond(tab-land) {
+        gap: $space-mini;
+      }
+
+      li {
+        color: $color-accent;
+        list-style: none;
+        padding: $space-supersmall $space-mini;
+        background-color: transparent;
+        transition: all 0.3s;
+
+        &:hover {
+          color: $color-main;
+          background-color: $color-accent;
+          transform: rotate(-2deg);
+          // transform: scale(1.05);
+        }
+
+        &:active {
+          transform: rotate(-3deg) scale(0.85);
+          background-color: $color-additional-1;
+          // transform: scale(0.85);
+        }
+      }
+      &--link {
+        color: inherit;
+        font-size: calc(#{$text-emphasize + $text-standard}/ 2);
+        font-size: $text-standard;
+        font-weight: 400;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        @include respond(tab-land) {
+          font-size: $text-small;
+        }
+      }
+    }
+  }
+
+  &__background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    // background-image: linear-gradient(
+    //     to bottom,
+    //     rgba($color-text, 0.15),
+    //     rgba($color-accent, 0.75),
+    //     rgba($color-additional-2, 0.5),
+    //     rgba($color-accent, 1)
+    //   ),
+    //   url("../Images/construction1.jpg");
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  &__body {
+    margin: 0 0 0 $space-small;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    justify-content: center;
+    align-items: center;
+    gap: $space-margin;
+    overflow: hidden;
+
+    @include respond(big-desktop) {
+      align-items: flex-start;
+    }
+
+    &--contact {
+      &--description {
+        font-size: $text-standard;
+        font-weight: 500;
+
+        @include respond(tab-land) {
+          font-size: $text-small;
+        }
+      }
+      &--number {
+        @include respond(tab-land) {
+          font-size: calc(#{$text-standard + $text-emphasize}/ 2);
+        }
+      }
+    }
+
+    &--header {
+      color: $color-main;
+      // display: inline-block;
+      font-size: $text-header-main;
+      font-weight: 800;
+      letter-spacing: 3.6px;
+      text-transform: uppercase;
+
+      @include respond(tab-land) {
+        font-size: $text-big;
+      }
+
+      @include respond(big-desktop) {
+        margin-top: $space-standard;
+      }
+    }
+
+    &--details {
+      margin-top: $space-gap;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--subheader {
+      font-size: $text-small;
+      font-weight: 500;
+      // letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    &--description {
+      // width: 85%;
+      margin-top: $space-mini;
+      color: $color-text;
+      font-size: calc(#{$text-small + $text-mini}/ 2);
+      font-weight: 400;
+      line-height: 1.6;
+      text-align: justify;
+
+      @include respond(tab-land) {
+        font-size: $text-mini;
+      }
+
+      @include respond(big-desktop) {
+        margin-top: $space-gap;
+      }
+    }
+
+    &--cta {
+      margin-top: $space-gap;
+      margin-left: $space-sub;
+      display: inline-block;
+
+      @include respond(tab-land) {
+        margin-top: calc(#{$space-small + $space-sub}/ 2);
+      }
+
+      &--placeholder {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: $space-sub;
+
+        text-decoration: none;
+        color: $color-accent;
+
+        // background-color: $color-main;
+        background-image: linear-gradient(
+          to bottom right,
+          $color-text,
+          $color-main
+        );
+        border-radius: 9px;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+        padding: $space-small $space-standard;
+        transition: all 0.3s;
+
+        &:hover {
+          cursor: pointer;
+          background-image: linear-gradient(
+            to bottom right,
+            $color-black,
+            $color-text
+          );
+          box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+          transform: scale(1.1);
+        }
+
+        &:active {
+          background-image: linear-gradient(
+            to right,
+            $color-main,
+            $color-additional-1
+          );
+          box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+          transform: scale(1);
+        }
+      }
+
+      &--icon {
+        display: block;
+        font-size: $text-big;
+        color: $color-accent;
+        transform: scale(1.5);
+      }
+
+      &--caption {
+        color: $color-accent;
+        font-size: $text-standard;
+        font-size: $text-small;
+        font-weight: 500;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+      }
+    }
+
+    &--right {
+      width: 100%;
+      height: 100%;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+// 2. About Us
+.services {
+  padding: $space-margin 0;
+  background-color: $color-white;
+  background-color: $color-main;
+  color: $color-accent;
+
+  &__header {
+    @include header-secondary;
+  }
+
+  &__list {
+    margin-top: $space-margin;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: $space-standard;
+    row-gap: $space-margin;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &--mobile {
+      display: none;
+
+      @include respond(tab-port) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $space-small;
+        transform: scale(1.2);
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &--description {
+      &--title {
+        font-size: calc(#{$text-emphasize + $text-standard}/ 2);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1.25px;
+
+        @include respond(tab-land) {
+          font-size: $text-standard;
+        }
+      }
+
+      &--explaination {
+        margin-top: $space-sub;
+        font-size: $text-mini;
+        text-align: justify;
+        line-height: 1.8;
+
+        @include respond(tab-land) {
+          font-size: calc(#{$text-supersmall + $text-mini}/ 2);
+          line-height: 1.6;
+        }
+
+        @include respond(tab-port) {
+          font-size: calc(#{$text-small + $text-mini}/ 2);
+          line-height: 1.8;
+        }
+      }
+    }
+
+    &--image {
+      width: 100%;
+      height: auto;
+      border-radius: 9px;
+
+      overflow: hidden;
+
+      @include respond(tab-port) {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 9px;
+
+        transition: all 0.5s;
+
+        &:hover {
+          transform: scale(1.1);
+          filter: brightness(0.75);
+        }
+      }
+    }
+  }
+}
+
+// 3. Work
+
+.work {
+  padding: $space-decent 0 $space-big;
+  background-color: $color-white;
+
+  @include respond(tab-port) {
+    padding: $space-decent 0;
+  }
+
+  @include respond(phone) {
+    padding: $space-decent $space-mini;
+  }
+
+  .container {
+    position: relative;
+
+    @include respond(phone) {
+      max-width: 100% !important;
+    }
+  }
+
+  &__header {
+    @include header-secondary;
+  }
+
+  &__command {
+    position: absolute;
+    display: inline-block;
+    right: 0%;
+    border: none;
+    background-color: transparent;
+
+    &--icon {
+      font-size: $text-big;
+      color: $color-main;
+      transform: scale(1);
+      transition: all 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        color: $color-additional-1;
+        transform: scale(1.25);
+      }
+
+      &:active {
+        color: $color-main;
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__container {
+    margin-top: $space-decent;
+    padding: $space-gap 0;
+    padding-left: $space-decent;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: $space-decent;
+    max-height: calc(2 * (25rem + #{$space-decent}) + (#{$space-gap}/ 2));
+    overflow: hidden;
+
+    @include respond(phone) {
+      padding-left: $space-gap;
+    }
+  }
+
+  &__row {
+    height: 27.5rem;
+    transition: all 0.3s;
+    // transform: translateY(-250%);
+
+    &--pic {
+      float: left;
+      width: $img-medium;
+      height: $img-medium;
+      border-radius: 50%;
+      overflow: hidden;
+      transform: translate(-20%, -10%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+
+      @include respond(tab-port) {
+        width: $img-sub;
+        height: $img-sub;
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+        filter: brightness(0.8);
+        transform: scale(1.15);
+        transition: all 0.3s;
+
+        @include respond(tab-port) {
+          filter: brightness(1);
+          transform: scale(1);
+        }
+      }
+    }
+
+    &--text {
+      &--header {
+        text-transform: uppercase;
+        font-size: $text-standard;
+        font-weight: 500;
+
+        @include respond(tab-port) {
+          font-size: $text-small;
+        }
+      }
+
+      &--description {
+        margin-top: $space-sub;
+        text-align: justify;
+        font-size: $text-small;
+        line-height: 1.8;
+
+        @include respond(tab-land) {
+          margin-top: $space-small;
+          font-size: calc(#{$text-mini + $text-small}/ 2);
+        }
+
+        @include respond(tab-port) {
+          font-size: $text-mini;
+          line-height: 1.6;
+        }
+
+        @include respond(phone) {
+          margin-top: $space-mini;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}
+
+.work__row:hover .work__row--pic img {
+  transform: scale(1);
+  filter: brightness(1);
+}
+
+// 4. Features
+
+.attributes {
+  padding: $space-decent 0;
+  // background-color: $color-main;
+  background-color: $color-accent;
+
+  &__header {
+    @include header-secondary;
+    // color: $color-accent;
+  }
+
+  &__cards {
+    margin: $space-decent 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: $space-standard;
+    text-align: center;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    @include respond(phone) {
+      margin: $space-decent 0 $space-standard;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+    }
+
+    &--card {
+      padding: $space-sub $space-small;
+      color: $color-accent;
+      background-color: $color-main;
+      border-radius: 7px;
+      transition: all 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $color-additional-1;
+        color: $color-white;
+        transform: scale(1.1) rotate(-1deg);
+      }
+    }
+
+    &--icon {
+      font-size: $text-emphasize;
+      transition: all 0.3s;
+    }
+
+    &--header {
+      margin-top: $space-sub;
+      font-size: $text-small;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    &--caption {
+      margin-top: $space-mini;
+      font-size: $text-mini;
+      line-height: 1.6;
+    }
+  }
+}
+
+.attributes__cards--card:hover ion-icon {
+  transform: scale(1.25);
+}
+
+// 5. Reviews
+
+.reviews {
+  color: $color-accent;
+  background-color: $color-main;
+  padding: $space-decent 0;
+
+  &__all {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: $space-margin;
+    margin: $space-decent 0;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+  }
+
+  &__header {
+    @include header-secondary;
+  }
+
+  &__card {
+    flex: 1;
+    width: 100%;
+    color: $color-main;
+    background-color: $color-accent;
+    padding: 0 0 $space-sub 0;
+    box-shadow: 1rem 2rem 4rem rgba($color-black, 0.2);
+    border-radius: 9px;
+    transition: all 0.3s;
+
+    &--top {
+      background-color: $color-white;
+      padding: $space-sub $space-sub $space-margin;
+      clip-path: ellipse(80% 50% at 50% 50%);
+      transition: all 0.3s;
+
+      @include respond(tab-land) {
+        padding: $space-sub $space-mini;
+      }
+    }
+
+    &--quote {
+      font-size: $text-header-main;
+      font-weight: 500;
+      letter-spacing: 2.4px;
+      line-height: 1;
+
+      @include respond(tab-land) {
+        font-size: $text-header-sub;
+      }
+    }
+
+    &--review {
+      text-align: center;
+      font-size: $text-mini;
+      line-height: 1.4;
+
+      @include respond(tab-land) {
+        font-size: $text-supersmall;
+        line-height: 1.6;
+      }
+
+      @include respond(tab-port) {
+        font-size: $text-mini;
+      }
+    }
+
+    &--bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      // gap: $space-small;
+      margin: $space-small 0 0;
+    }
+
+    &--avatar {
+      font-size: $text-emphasize;
+      width: $text-header-main;
+      height: auto;
+    }
+
+    &--name {
+      font-size: $text-small;
+      text-transform: uppercase;
+      text-align: center;
+
+      @include respond(tab-land) {
+        font-size: $text-mini;
+      }
+      @include respond(tab-port) {
+        font-size: $text-small;
+      }
+    }
+  }
+}
+
+.reviews__card:hover .reviews__card--top {
+  cursor: default;
+  // clip-path: ellipse(80% 75% at 50% 50%);
+}
+
+// 6. Gallery
+
+.products {
+  padding: $space-decent 0;
+  background-color: $color-white;
+  &__gallery {
+    &--header {
+      &--title {
+        @include header-secondary;
+      }
+    }
+  }
+
+  &__grid {
+    margin-top: $space-margin;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: $space-mini;
+    column-gap: $space-mini;
+    line-height: 1;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(3, 1fr);
+      // grid-template-rows: repeat(4, 1fr);
+    }
+
+    @include respond(phone) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &--figure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+
+      &--hide {
+        display: block;
+
+        @include respond(phone) {
+          display: none;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.85);
+        transition: all 0.3s;
+
+        @include respond(tab-port) {
+          filter: brightness(1);
+        }
+
+        &:hover {
+          filter: brightness(1);
+          transform: scale(1.15);
+        }
+      }
+    }
+  }
+}
+
+// 6. Footer
+.footer {
+  color: $color-accent;
+  background-color: $color-main;
+  padding: $space-standard $space-small;
+
+  @include respond(phone) {
+    padding: $space-standard $space-small $space-decent;
+  }
+
+  &__tagline {
+    font-size: $text-mini;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: center;
+
+    @include respond(tab-port) {
+      font-size: $text-small;
+    }
+
+    @include respond(phone) {
+      font-size: $text-mini;
+    }
+  }
+
+  &__links {
+    margin-top: $space-standard;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: $space-gap;
+
+    @include respond(tab-land) {
+      gap: $space-small;
+    }
+
+    @include respond(phone) {
+      flex-direction: column;
+      gap: calc(#{$space-decent + $space-margin}/ 2);
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+
+    img {
+      width: $img-small;
+      height: auto;
+      margin-bottom: $space-small;
+    }
+
+    &--header {
+      font-size: $text-standard;
+      text-transform: uppercase;
+      margin-bottom: $space-supersmall;
+
+      @include respond(tab-land) {
+        font-size: $text-small;
+      }
+    }
+
+    &--sub {
+      font-size: $text-mini;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      @include respond(tab-land) {
+        font-size: $text-supersmall;
+      }
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    flex-grow: 1;
+
+    @include respond(tab-land) {
+      width: 75%;
+    }
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &--list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-mini;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: $space-mini;
+        background-color: transparent;
+        color: inherit;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0);
+        transition: all 0.3s;
+
+        @include respond(tab-land) {
+          padding: $space-supersmall;
+        }
+
+        @include respond(phone) {
+          justify-content: center;
+        }
+
+        &:before {
+          content: ">";
+          padding-right: $space-small;
+        }
+
+        &:hover {
+          background-color: $color-accent;
+          color: $color-main;
+          box-shadow: 0 2rem 4rem rgba($color-black, 0.1);
+          transform: scale(1.1) rotate(-1deg);
+        }
+      }
+
+      &--link {
+        color: inherit;
+        text-decoration: none;
+        font-size: $text-mini;
+
+        @include respond(tab-land) {
+          font-size: $text-supersmall;
+        }
+
+        @include respond(tab-port) {
+          font-size: $text-mini;
+        }
+      }
+    }
+  }
+
+  &__info {
+    width: 85%;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    &--list {
+      display: flex;
+      flex-direction: column;
+      gap: $space-small;
+    }
+    &--item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: $space-gap;
+
+      @include respond(tab-port) {
+        justify-content: center;
+      }
+
+      &--icon {
+        width: $text-standard;
+        height: $text-standard;
+        display: block;
+      }
+
+      &--desc {
+        font-size: $text-mini;
+        display: flex;
+        flex-direction: column;
+        gap: $space-supersmall;
+
+        @include respond(tab-land) {
+          font-size: $text-supersmall;
+        }
+
+        @include respond(tab-port) {
+          font-size: $text-mini;
+        }
+
+        a {
+          display: block;
+          color: $color-additional-2;
+          transition: all 0.3s;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        span {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// Additional: Our Thoughts

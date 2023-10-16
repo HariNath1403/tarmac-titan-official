@@ -1,0 +1,89 @@
+@mixin header-secondary {
+  font-size: $text-header-sub;
+  text-transform: uppercase;
+}
+// Whatsapp Logo
+
+.whatsapp {
+  &__placeholder {
+    display: none;
+  }
+  &--active {
+    display: block;
+    position: fixed;
+    bottom: $space-sub;
+    left: $space-sub;
+  }
+
+  &__placeholder {
+    &--icon {
+      padding: $space-mini;
+      border-radius: 50%;
+      color: $color-white;
+      background-color: $color-green;
+      opacity: 0.75;
+      width: $icon-medium;
+      height: $icon-medium;
+      transform: scale(0.85);
+      transition: all 0.3s;
+
+      @include respond(phone) {
+        width: $icon-small;
+        height: $icon-small;
+        opacity: 0.9;
+      }
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+// Fade In Effect
+
+.section {
+  transition: all 0.75s;
+
+  &--hidden {
+    opacity: 0;
+    transform: translateY($space-big);
+  }
+}
+
+// Changing background (Hero section)
+.mobile__background--img {
+  background-image: linear-gradient(
+      to right,
+      rgba($color-main, 0.05),
+      rgba($color-accent, 0.85)
+    ),
+    url("../Images/hero/pic\ 1.jpeg");
+  transition: 5s;
+  animation-name: change;
+  animation-direction: alternate-reverse;
+  animation-play-state: running;
+  animation-duration: 15s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes change {
+  0% {
+    background-image: url("../Images/hero/pic\ 1.jpeg");
+  }
+  25% {
+    background-image: url("../Images/hero/pic\ 2.jpg");
+  }
+  50% {
+    background-image: url("../Images/hero/pic\ 3.jpeg");
+  }
+  75% {
+    background-image: url("../Images/hero/pic\ 4.jpeg");
+  }
+
+  100% {
+    background-image: url("../Images/hero/pic\ 1.jpeg");
+  }
+}

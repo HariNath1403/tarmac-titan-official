@@ -1,0 +1,73 @@
+// 1. Colors
+$color-main: #002449;
+$color-accent: #d4e3eb;
+$color-text: #13253b;
+$color-additional-1: #0086c9;
+$color-additional-2: #9ec3eb;
+$color-green: #03a63c;
+$color-black: #000;
+$color-white: #eef4f7;
+
+// 2. Font size
+$text-header-main: 8.4rem;
+$text-header-sub: 6.4rem;
+$text-big: 4.8rem;
+$text-emphasize: 3.6rem;
+$text-standard: 2.4rem;
+$text-small: 2rem;
+$text-mini: 1.6rem;
+$text-supersmall: 1.2rem;
+
+// 3. Whitespace
+$space-big: 12.8rem;
+$space-widegap: 8.4rem;
+$space-decent: 7.2rem;
+$space-margin: 5.6rem;
+$space-standard: 4.8rem;
+$space-gap: 3.6rem;
+$space-sub: 2.8rem;
+$space-small: 1.8rem;
+$space-mini: 1.2rem;
+$space-supersmall: 0.6rem;
+
+// 4. Container widths
+$max-width-medium: 98rem;
+$max-width-small: 79rem;
+$max-width-potrait: 63rem;
+$max-width-phone: 37.5rem;
+
+// 5. Images
+$img-large: 32rem;
+$img-medium: 24rem;
+$img-sub: 18rem;
+$img-small: 8rem;
+$icon-big: 14rem;
+$icon-medium: 9.6rem;
+$icon-small: 6.8rem;
+
+// 6. Media Queries
+@mixin respond($breakpoint) {
+  @if $breakpoint == tab-land {
+    @media (max-width: 56.25em) {
+      @content; // 900px
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 48rem) {
+      @content; //768px
+    }
+  }
+
+  @if $breakpoint == phone {
+    @media (max-width: 36.625rem) {
+      @content; //586px
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 93.75em) {
+      @content; // > 1500px
+    }
+  }
+}

@@ -1,0 +1,317 @@
+.container {
+  max-width: $max-width-medium;
+  margin: 0 auto;
+
+  @include respond(tab-land) {
+    max-width: $max-width-small;
+  }
+  @include respond(tab-port) {
+    max-width: $max-width-potrait;
+  }
+  @include respond(phone) {
+    max-width: $max-width-phone;
+  }
+}
+
+// Mobile view Homepage
+
+.homepage {
+  &__desktop {
+    display: block;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+  &__mobile {
+    display: none;
+    background-color: $color-accent;
+    background-color: $color-white;
+    padding-bottom: $space-widegap;
+
+    @include respond(tab-port) {
+      display: block;
+    }
+  }
+}
+
+.mobile {
+  &__background {
+    position: relative;
+    overflow-x: hidden;
+    background-color: $color-main;
+    outline: none;
+    border: none;
+
+    &--img {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100vw;
+      height: 50vh;
+      clip-path: polygon(0 0, 0 100%, 100% 87.5%, 100% 0);
+    }
+
+    &--centre {
+      position: absolute;
+      bottom: 7.5%;
+      right: -4.5%;
+      text-align: center;
+      background-color: rgba($color-accent, 0.15);
+      padding: $space-sub $space-small;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+      clip-path: polygon(15% 0, 0 100%, 100% 100%, 100% 0);
+      transform: scale(0.9);
+
+      @include respond(phone) {
+        background-color: rgba($color-white, 0.35);
+      }
+    }
+
+    &--logo {
+      width: $icon-big;
+      height: auto;
+
+      @include respond(phone) {
+        width: $icon-medium;
+      }
+    }
+
+    &--header {
+      text-transform: uppercase;
+      font-size: calc(#{$text-header-sub + $text-big}/ 2);
+      color: inherit;
+      letter-spacing: 2.8px;
+
+      @include respond(phone) {
+        font-size: $text-big;
+      }
+    }
+
+    &--sub {
+      text-transform: uppercase;
+      font-size: $text-small;
+      font-weight: 500;
+      color: inherit;
+      letter-spacing: 2.8px;
+      margin-top: $space-mini;
+    }
+  }
+
+  &__body {
+    &--call {
+      color: $color-accent;
+      // background-color: $color-main;
+      background-image: linear-gradient(
+        to bottom,
+        $color-main,
+        $color-black,
+        $color-main
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $space-sub;
+      padding: $space-small $space-mini;
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.25);
+      padding-top: $space-sub;
+      transform: translateY(-1px);
+
+      &--icon {
+        display: flex;
+        align-items: center;
+        color: inherit;
+
+        ion-icon {
+          padding: calc(#{$space-small + $space-mini}/ 2);
+          border-radius: 50%;
+          color: $color-white;
+          background-color: $color-green;
+          width: $icon-medium;
+          height: $icon-medium;
+          box-shadow: 0 0.5rem 1rem rgba($color-black, 0.25);
+          transition: all 0.3s;
+
+          @include respond(phone) {
+            width: calc(#{$icon-small * 0.85});
+            height: calc(#{$icon-small * 0.85});
+          }
+
+          &:active {
+            transform: scale(0.85);
+          }
+        }
+      }
+
+      &--contact {
+        font-size: calc(#{$text-header-sub + $text-big}/ 2);
+        @include respond(phone) {
+          font-size: $text-emphasize;
+        }
+      }
+    }
+
+    &--description {
+      margin-top: $space-standard;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: calc(#{$text-emphasize + $text-standard}/ 2);
+      margin-left: $space-gap;
+
+      @include respond(phone) {
+        margin-left: $space-small;
+      }
+    }
+
+    &--services {
+      display: flex;
+      flex-wrap: wrap;
+      // justify-content: space-around;
+      gap: $space-small;
+      margin-top: $space-gap;
+    }
+
+    &--point {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: $space-supersmall;
+      padding: $space-supersmall;
+      border-radius: 3px;
+      font-size: $text-standard;
+      background-color: $color-main;
+      color: $color-accent;
+
+      @include respond(phone) {
+        font-size: calc(#{$text-small + $text-mini}/ 2);
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 3%;
+    left: 5%;
+
+    &--link {
+      color: $color-accent;
+
+      &--icon {
+        color: $color-accent;
+        background-color: $color-main;
+        padding: $space-small;
+        height: $icon-small;
+        width: $icon-small;
+        border-radius: 50%;
+        transform: scale(0.85);
+        transition: all 0.3s;
+
+        &:active {
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+
+  &__navigation {
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-image: linear-gradient(
+      to left bottom,
+      rgba($color-black, 0.95),
+      rgba($color-main, 0.9)
+    );
+    color: $color-accent;
+    backdrop-filter: blur(5px);
+
+    &--list {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      list-style: none;
+      gap: $space-standard;
+
+      @include respond(phone) {
+        gap: $space-sub;
+      }
+
+      li {
+        &:nth-child(odd) {
+          transform: rotate(1.5deg);
+
+          @include respond(phone) {
+            transform: rotate(0deg);
+          }
+        }
+      }
+    }
+
+    &--link {
+      &:link,
+      &:visited {
+        display: inline-block;
+        text-decoration: none;
+        color: $color-text;
+        background-image: linear-gradient(
+          to right bottom,
+          $color-accent 60%,
+          $color-additional-1
+        );
+        font-size: $text-emphasize;
+        text-transform: uppercase;
+        letter-spacing: 1.8px;
+        padding: $space-small $space-gap;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+        transition: all 0.3s;
+
+        @include respond(phone) {
+          font-size: $text-standard;
+        }
+      }
+
+      &:active {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-accent 25%,
+          $color-additional-1
+        );
+        transform: scale(0.9);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.25);
+      }
+    }
+
+    &--exit {
+      display: block;
+      position: absolute;
+      right: $space-standard;
+      top: $space-gap;
+      transition: all 0.2s;
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &--icon {
+        color: $color-accent;
+        width: $icon-small;
+        height: $icon-small;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
