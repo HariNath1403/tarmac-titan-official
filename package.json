@@ -4,7 +4,6 @@
   "description": "landing page",
   "default": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w",
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
   },
@@ -14,5 +13,9 @@
     "@parcel/transformer-sass": "^2.10.0",
     "node-sass": "^9.0.0",
     "parcel": "^2.10.0"
+  },
+  "dependencies": {
+    "core-js": "^3.33.0",
+    "regenerator-runtime": "^0.14.0"
   }
 }
