@@ -67,7 +67,7 @@ $icon-small: 6.8rem;
 
   @if $breakpoint == big-desktop {
     @media (min-width: 93.75em) {
-      @content; // > 1500px
+      @content; // > 1500pxx
     }
   }
 }
