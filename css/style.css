@@ -594,6 +594,11 @@ body {
     right: 0%;
     border: none;
     background-color: transparent; }
+    @media (max-width: 36.625rem) {
+      .work__command--up {
+        transform: translateY(125%); }
+      .work__command--down {
+        transform: translateY(-125%); } }
     .work__command--icon {
       font-size: 4.8rem;
       color: #002449;
@@ -620,7 +625,8 @@ body {
         padding-left: 3.6rem; } }
   .work__row {
     height: 27.5rem;
-    transition: all 0.3s; }
+    transition: all 0.3s;
+    transform: scale(1.1); }
     .work__row--pic {
       float: left;
       width: 24rem;

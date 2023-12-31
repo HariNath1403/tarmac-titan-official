@@ -425,6 +425,15 @@
     border: none;
     background-color: transparent;
 
+    @include respond(phone) {
+      &--up {
+        transform: translateY(125%);
+      }
+      &--down {
+        transform: translateY(-125%);
+      }
+    }
+
     &--icon {
       font-size: $text-big;
       color: $color-main;
@@ -462,7 +471,7 @@
   &__row {
     height: 27.5rem;
     transition: all 0.3s;
-    // transform: translateY(-250%);
+    transform: scale(1.1);
 
     &--pic {
       float: left;
