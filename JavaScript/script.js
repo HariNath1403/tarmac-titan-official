@@ -8,16 +8,19 @@ let location;
 let minSlide = 1;
 let maxSlide = 4;
 
+/*
 const goToSlide = function (slides, val) {
   console.log(curSlide * 125 * val);
   slides.forEach(
     (slide) => (slide.style.transform = `translateY(${curSlide * 125 * val}%)`)
   );
 };
+*/
 
-workBtnDown.style.display = "none";
+// workBtnDown.style.display = "none";
+workBtnUp.style.display = "none";
 
-workBtnUp.addEventListener("click", function () {
+workBtnDown.addEventListener("click", function () {
   if (curSlide < maxSlide) {
     location = curSlide * -125;
     workRows.forEach((row) => {
@@ -30,21 +33,26 @@ workBtnUp.addEventListener("click", function () {
     workRows.forEach((row) => {
       row.style.transform = `translateY(${location}%)`;
     });
-    workBtnUp.style.display = "none";
-    workBtnDown.style.display = "block";
+    workBtnUp.style.display = "block";
+    workBtnDown.style.display = "none";
   }
+  console.log(curSlide);
   curSlide++;
 });
 
-workBtnDown.addEventListener("click", function () {
+workBtnUp.addEventListener("click", function () {
+  console.log(curSlide);
   curSlide--;
   location += 125;
   workRows.forEach((row) => {
     row.style.transform = `translateY(${location}%)`;
   });
   workBtnUp.style.display = "block";
+  workBtnDown.style.display = "block";
+
   if (curSlide === 1) {
-    workBtnDown.style.display = "none";
+    workBtnDown.style.display = "block";
+    workBtnUp.style.display = "none";
   }
 });
 
