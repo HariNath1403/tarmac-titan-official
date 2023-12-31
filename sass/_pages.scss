@@ -427,10 +427,10 @@
 
     @include respond(phone) {
       &--up {
-        transform: translateY(125%);
+        transform: translateY(115%);
       }
       &--down {
-        transform: translateY(-125%);
+        transform: translateY(-115%);
       }
     }
 
